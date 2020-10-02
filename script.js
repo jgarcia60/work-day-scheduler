@@ -1,5 +1,5 @@
 // var currentDate = moment().format(); //returns current date/time in format YYYY-MM-DD h:mm:ss a
-// console.log(currentDate);
+console.log(moment().hour());
 // console.log(moment().day()); //does same thing, but 0-6 with 0 starting on sunday
 // console.log(moment().isoWeekday()); //returns an integer 1-7 where 1 represents Monday
 //put current day above calendar
@@ -31,9 +31,52 @@ $("#currentDay").text(dayOfWeek + ", " + currentMonth + " " + dayOfMonth + suffi
 //insert time blocks from 8AM - 5PM, with color coding
     //add new div with class row, make the row  expand 75% width of screen
     //make 3 columns, one for each time (width 2), one for the events (width 10) and one for save button (width 2)
-        //for loop from i = 0 to 9 (8 hour day with 1 hour lunch) to create elements
-        for (var i = 0; i < 9; i++) {
+        // for loop from i = 0 to 9 (8 hour day with 1 hour lunch) to create elements
+        var hour = moment().hour();
+        var pastOrPresent;
+        var hourBlock;
+        var pmOrAM = "AM";
+        for (var i = 0; i < 10; i++) {
+            if (i < 5) {
+                hourBlock = i + 8;
+                if (hourBlock == 12) {
+                    pmOrAM = "PM";
+                }
+            } else {
+                hourBlock = i - 4;
+                pmOrAM = "PM";
+            }
+            
+            var newRow = $("<div>");
+            newRow.addClass("row");
+                var timeColumn = $("<div>");
+                timeColumn.addClass("col-md-2" + " time-block");
+                timeColumn.text(hourBlock + pmOrAM);
+                newRow.append(timeColumn);
 
+                var eventColumn = $("<div>");
+                if (hour > i + 8) {
+                    pastOrPresent = "past";
+                } else if (hour < i + 8) {
+                    pastOrPresent = "future";
+                } else pastOrPresent = "present";
+                eventColumn.addClass("col-md-8");
+
+                var inputDiv = $("<textarea>");
+                inputDiv.addClass("form-control " + "hour " + pastOrPresent);
+                inputDiv.attr("id", "exampleFormControTextarea1");
+                inputDiv.attr("rows", 2);
+                eventColumn.append(inputDiv);
+                newRow.append(eventColumn);
+
+                var saveCol = $("<div>");
+                saveCol.addClass("col-md-2");
+                var saveBtn = $("<button>");
+                saveBtn.addClass("saveBtn i:hover");
+                saveCol.append(saveBtn);
+                newRow.append(saveCol);
+                $(".container").append(newRow);
+            
         }
         //text content for time block starts at 8 and resets to 1 after noon (PM status change at noon) 
         //add class or attribute for color code status.
