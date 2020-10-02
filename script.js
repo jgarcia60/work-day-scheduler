@@ -1,11 +1,7 @@
-console.log("hello world");
-var currentDate = moment().format(); //returns current date/time in format YYYY-MM-DD h:mm:ss a
-console.log(currentDate);
-
-console.log(moment().day()); //does same thing, but 0-6 with 0 starting on sunday
-
-console.log(moment().isoWeekday()); //returns an integer 1-7 where 1 represents Monday
-
+// var currentDate = moment().format(); //returns current date/time in format YYYY-MM-DD h:mm:ss a
+// console.log(currentDate);
+// console.log(moment().day()); //does same thing, but 0-6 with 0 starting on sunday
+// console.log(moment().isoWeekday()); //returns an integer 1-7 where 1 represents Monday
 //put current day above calendar
 var suffix;
 var weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -23,7 +19,7 @@ var dayOfMonth = todayArray[todayArray.length - 1];
 dayOfMonth = parseInt(dayOfMonth);
 console.log(dayOfMonth);
 
-if (dayOfMonth >= 4  && dayOfMonth <= 20 || dayOfMonth >= 24 && dayOfMonth <= 31) {
+if (dayOfMonth >= 4  && dayOfMonth <= 20 || dayOfMonth >= 24 && dayOfMonth < 31) {
     suffix = "th";
 } else if (dayOfMonth == 2 || dayOfMonth == 22) {
     suffix = "nd";
@@ -33,6 +29,18 @@ if (dayOfMonth >= 4  && dayOfMonth <= 20 || dayOfMonth >= 24 && dayOfMonth <= 31
 $("#currentDay").text(dayOfWeek + ", " + currentMonth + " " + dayOfMonth + suffix);
 
 //insert time blocks from 8AM - 5PM, with color coding
+    //add new div with class row, make the row  expand 75% width of screen
+    //make 3 columns, one for each time (width 2), one for the events (width 10) and one for save button (width 2)
+        //for loop from i = 0 to 9 (8 hour day with 1 hour lunch) to create elements
+        for (var i = 0; i < 9; i++) {
 
+        }
+        //text content for time block starts at 8 and resets to 1 after noon (PM status change at noon) 
+        //add class or attribute for color code status.
+        //add form in center column for user entry
+        //add buttons to last column for save functionality
+
+    //add local storage functionality for save buttons
+    
 
 //set up event listeners for the form save buttons and add to local storage
