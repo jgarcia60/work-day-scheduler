@@ -10,7 +10,7 @@ textarea{
   resize: none;
   color: #000000;
   border-left: 1px solid black;
-  padding: 10px;
+  padding: 1px;
 }
 
 .jumbotron {
@@ -57,12 +57,18 @@ textarea{
   color: white;
 }
 
+.btnDiv {
+  /* background-image: url("https://image.flaticon.com/icons/png/512/84/84297.png"); */
+}
+
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  width: 70%;
+  height: 75%;
 }
 
 .saveBtn i:hover {

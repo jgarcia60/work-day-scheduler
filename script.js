@@ -1,5 +1,5 @@
 // var currentDate = moment().format(); //returns current date/time in format YYYY-MM-DD h:mm:ss a
-console.log(moment().hour());
+// console.log(moment().hour());
 // console.log(moment().day()); //does same thing, but 0-6 with 0 starting on sunday
 // console.log(moment().isoWeekday()); //returns an integer 1-7 where 1 represents Monday
 //put current day above calendar
@@ -10,16 +10,18 @@ var currentMonth = months[moment().month()];
 // console.log(currentMonth);
 
 var dayOfWeek = weekDays[moment().day()];
-console.log("Today is: " + dayOfWeek);
-console.log("Today is: " + weekDays[5]);
+// console.log("Today is: " + dayOfWeek);
+// console.log("Today is: " + weekDays[5]);
 
 var currentDate =  moment().format("YYYY-MM-DD");
 var todayArray = currentDate.split("-");
 var dayOfMonth = todayArray[todayArray.length - 1];
 dayOfMonth = parseInt(dayOfMonth);
 // console.log(dayOfMonth);
+var events = JSON.parse(localStorage.getItem("events"));
 
 $(document).ready(function() {
+    
     if (dayOfMonth >= 4  && dayOfMonth <= 20 || dayOfMonth >= 24 && dayOfMonth < 31) {
         suffix = "th";
     } else if (dayOfMonth == 2 || dayOfMonth == 22) {
@@ -62,17 +64,17 @@ $(document).ready(function() {
                         pastOrPresent = "future";
                     } else pastOrPresent = "present";
                     eventColumn.addClass("col-md-8");
-                    eventColumn.attr("id", hourBlock);
+                    // eventColumn.attr("id", hourBlock);
     
                     var inputDiv = $("<textarea>");
                     inputDiv.addClass("form-control " + "hour " + pastOrPresent);
-                    inputDiv.attr("id", "exampleFormControTextarea1");
+                    inputDiv.attr("id", hourBlock);
                     inputDiv.attr("rows", 2);
                     eventColumn.append(inputDiv);
                     newRow.append(eventColumn);
     
                     var saveCol = $("<div>");
-                    saveCol.addClass("col-md-2");
+                    saveCol.addClass("col-md-2 btnDiv");
                     var saveBtn = $("<button>");
                     saveBtn.addClass("saveBtn i:hover");
                     saveBtn.attr("id", hourBlock * 10);
@@ -81,10 +83,16 @@ $(document).ready(function() {
                     $(".container").append(newRow);
                 
             }
-            //text content for time block starts at 8 and resets to 1 after noon (PM status change at noon) 
-            //add class or attribute for color code status.
-            //add form in center column for user entry
-            //add buttons to last column for save functionality
+
+            $(".saveBtn").on("click", function(){
+                var id = $(this).attr("id") / 10;
+                console.log(id);
+                var stringID = "#" + id;
+                // $(stringID).text("testing");
+                // var test = $(stringID).text();
+                // console.log(test);
+                localStorage.setItem(id, JSON.stringify($(stringID).val()));
+            })
     
         //add local storage functionality for save buttons
 });
