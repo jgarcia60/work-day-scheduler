@@ -26,8 +26,9 @@ textarea{
 }
 
 .time-block{
-  text-align: center;
+  text-align: right;
   border-radius: 15px;
+  margin: auto;
 }
 
 .row {
@@ -40,25 +41,26 @@ textarea{
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+
 }
 
 .past {
   background-color: #d3d3d3;
-  color: white;
+  color: black;
 }
 
 .present {
   background-color: #ff6961;
-  color: white;
+  color: black;
 }
 
 .future {
   background-color: #77dd77;
-  color: white;
+  color: black;
 }
 
 .btnDiv {
-  /* background-image: url("https://image.flaticon.com/icons/png/512/84/84297.png"); */
+  /* background-image: url("https://img.icons8.com/fluent-systems-regular/2x/save.png"); */
 }
 
 .saveBtn {
@@ -69,6 +71,7 @@ textarea{
   color: white;
   width: 70%;
   height: 75%;
+  /* background-image: url("https://img.icons8.com/fluent-systems-regular/2x/save.png"); */
 }
 
 .saveBtn i:hover {

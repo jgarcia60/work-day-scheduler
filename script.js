@@ -54,7 +54,9 @@ $(document).ready(function() {
                 newRow.addClass("row");
                     var timeColumn = $("<div>");
                     timeColumn.addClass("col-md-2" + " time-block");
-                    timeColumn.text(hourBlock + pmOrAM);
+                    var pEl = $("<p>");
+                    pEl.text(hourBlock + pmOrAM);
+                    timeColumn.append(pEl);
                     newRow.append(timeColumn);
     
                     var eventColumn = $("<div>");
@@ -78,6 +80,9 @@ $(document).ready(function() {
                     var saveBtn = $("<button>");
                     saveBtn.addClass("saveBtn i:hover");
                     saveBtn.attr("id", hourBlock * 10);
+                    var imgEl = $("<img>");
+                    imgEl.attr("src", "https://img.icons8.com/small/2x/save.png"); //https://img.icons8.com/small/2x/save.png
+                    saveBtn.append(imgEl);
                     saveCol.append(saveBtn);
                     newRow.append(saveCol);
                     $(".container").append(newRow);
