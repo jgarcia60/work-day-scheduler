@@ -55,6 +55,7 @@ $(document).ready(function() {
                     var timeColumn = $("<div>");
                     timeColumn.addClass("col-md-2" + " time-block");
                     var pEl = $("<p>");
+                    pEl.addClass("p");
                     pEl.text(hourBlock + pmOrAM);
                     timeColumn.append(pEl);
                     newRow.append(timeColumn);
@@ -65,21 +66,22 @@ $(document).ready(function() {
                     } else if (hour < i + 8) {
                         pastOrPresent = "future";
                     } else pastOrPresent = "present";
-                    eventColumn.addClass("col-md-8");
+                    eventColumn.addClass("col-md-8 middle");
                     // eventColumn.attr("id", hourBlock);
     
                     var inputDiv = $("<textarea>");
                     inputDiv.addClass("form-control " + "hour " + pastOrPresent);
                     inputDiv.attr("id", hourBlock);
-                    inputDiv.attr("rows", 2);
+                    inputDiv.attr("rows", 3);
                     eventColumn.append(inputDiv);
                     newRow.append(eventColumn);
     
                     var saveCol = $("<div>");
-                    saveCol.addClass("col-md-2 btnDiv");
+                    saveCol.addClass("col-md-2 right");
                     var saveBtn = $("<button>");
                     saveBtn.addClass("saveBtn i:hover");
                     saveBtn.attr("id", hourBlock * 10);
+                    // saveBtn.attr("rows", 4);
                     var imgEl = $("<img>");
                     imgEl.attr("src", "https://img.icons8.com/small/2x/save.png"); //https://img.icons8.com/small/2x/save.png
                     saveBtn.append(imgEl);

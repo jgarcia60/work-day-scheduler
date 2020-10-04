@@ -1,3 +1,6 @@
+.lead {
+  text-align: center;
+}
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -25,17 +28,36 @@ textarea{
   white-space: pre-wrap;
 }
 
-.time-block{
-  text-align: right;
-  border-radius: 15px;
-  margin: auto;
+.first {
+  border-top: black;
+  border-style: solid;
+  padding: auto;
+  margin-right: 0;
+  width: 100%;
 }
 
-.row {
+p {
+  padding-bottom: 20px;
+  padding-top: 30px;
+  text-align: right;
+}
+.time-block {
+  text-align: right;
+  /* border-radius: 15px; */
+  margin: auto;
+  border-top: black;
+  border-top-style: solid;
+}
+.right, .middle, .time-block {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* .col-md-2 {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;;
-}
+} */
 
 .hour {
   background-color: #ffffff;
@@ -68,10 +90,11 @@ textarea{
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
+  margin: auto;
   color: white;
-  width: 70%;
-  height: 75%;
-  /* background-image: url("https://img.icons8.com/fluent-systems-regular/2x/save.png"); */
+  width: 50%;
+  height: 100%;
+  /* align-items: left; */
 }
 
 .saveBtn i:hover {
