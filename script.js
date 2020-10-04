@@ -18,7 +18,7 @@ var todayArray = currentDate.split("-");
 var dayOfMonth = todayArray[todayArray.length - 1];
 dayOfMonth = parseInt(dayOfMonth);
 // console.log(dayOfMonth);
-var events = JSON.parse(localStorage.getItem("events"));
+// var events = JSON.parse(localStorage.getItem("events"));
 
 $(document).ready(function() {
     
@@ -72,9 +72,21 @@ $(document).ready(function() {
                     var inputDiv = $("<textarea>");
                     inputDiv.addClass("form-control " + "hour " + pastOrPresent);
                     inputDiv.attr("id", hourBlock);
+                    // inputDiv.val(input);
                     inputDiv.attr("rows", 3);
+                    
+                    
                     eventColumn.append(inputDiv);
                     newRow.append(eventColumn);
+                    if (JSON.parse(localStorage.getItem(hourBlock)) !== null) {
+                        var input = JSON.parse(localStorage.getItem(hourBlock));
+                        console.log(input);
+                        var tempString = "#" + hourBlock;
+                        console.log("hourBlock: " + hourBlock);
+                        inputDiv.val(input);
+                        // $(tempString).val(input);
+                    }
+                    // inputDiv.val(JSON.localStorage.getItem(hourBlock));
     
                     var saveCol = $("<div>");
                     saveCol.addClass("col-md-2 right");

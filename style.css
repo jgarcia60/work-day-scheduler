@@ -8,7 +8,7 @@ body {
 }
 
 textarea{
-  background: transparent;
+  /* background: transparent; */
   border: none;
   resize: none;
   color: #000000;
@@ -97,7 +97,7 @@ p {
   /* align-items: left; */
 }
 
-.saveBtn i:hover {
+.i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
