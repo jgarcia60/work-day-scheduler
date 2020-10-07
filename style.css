@@ -6,14 +6,15 @@
 #currentDay {
   padding-bottom: 0;
 }
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
 }
 
+/* text area formatting for visible text and clear borders  */
 textarea{
-  /* background: transparent; */
   border: none;
   resize: none;
   color: #000000;
@@ -34,6 +35,7 @@ textarea{
   white-space: pre-wrap;
 }
 
+/* first columm styling to make it 'stick' to the text area  */
 .first {
   border-top: black;
   border-style: solid;
@@ -47,9 +49,10 @@ p {
   padding-top: 30px;
   text-align: right;
 }
+
+/*styling for the border and time display alignment*/
 .time-block {
   text-align: right;
-  /* border-radius: 15px; */
   margin: auto;
   border-top: black;
   border-top-style: solid;
@@ -59,11 +62,6 @@ p {
   padding-left: 0;
 }
 
-/* .col-md-2 {
-  white-space: pre-wrap;
-  height: 80px;
-  border-top: 1px solid white;;
-} */
 
 .hour {
   background-color: #ffffff;
@@ -72,6 +70,7 @@ p {
 
 }
 
+/* color coding for past present and future time blocks  */
 .past {
   background-color: #d3d3d3;
   color: black;
@@ -87,10 +86,8 @@ p {
   color: black;
 }
 
-.btnDiv {
-  /* background-image: url("https://img.icons8.com/fluent-systems-regular/2x/save.png"); */
-}
 
+/* save button styling  */
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
@@ -100,7 +97,6 @@ p {
   color: white;
   width: 50%;
   height: 100%;
-  /* align-items: left; */
 }
 
 .i:hover {

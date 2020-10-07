@@ -29,7 +29,7 @@ $(document).ready(function() {
     
     //insert time blocks from 8AM - 5PM, with color coding
         //add new div with class row, make the row  expand 75% width of screen
-        //make 3 columns, one for each time (width 2), one for the events (width 10) and one for save button (width 2)
+        //make 3 columns, one for each time (width 2), one for the events (width 8) and one for save button (width 2)
             // for loop from i = 0 to 9 (8 hour day with 1 hour lunch) to create elements
             var hour = moment().hour();
             var pastOrPresent;
