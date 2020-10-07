@@ -1,8 +1,4 @@
-// var currentDate = moment().format(); //returns current date/time in format YYYY-MM-DD h:mm:ss a
-// console.log(moment().hour());
-// console.log(moment().day()); //does same thing, but 0-6 with 0 starting on sunday
-// console.log(moment().isoWeekday()); //returns an integer 1-7 where 1 represents Monday
-//put current day above calendar
+
 var suffix;
 var weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -21,7 +17,7 @@ dayOfMonth = parseInt(dayOfMonth);
 // var events = JSON.parse(localStorage.getItem("events"));
 
 $(document).ready(function() {
-    
+    //conditionals to match appropriate suffix
     if (dayOfMonth >= 4  && dayOfMonth <= 20 || dayOfMonth >= 24 && dayOfMonth < 31) {
         suffix = "th";
     } else if (dayOfMonth == 2 || dayOfMonth == 22) {
@@ -39,6 +35,7 @@ $(document).ready(function() {
             var pastOrPresent;
             var hourBlock;
             var pmOrAM = "AM";
+            //determine hour block from iterative loop along with PM or AM
             for (var i = 0; i < 10; i++) {
                 if (i < 5) {
                     hourBlock = i + 8;
@@ -61,6 +58,7 @@ $(document).ready(function() {
                     newRow.append(timeColumn);
     
                     var eventColumn = $("<div>");
+                    //conditionals to determine color code for time block
                     if (hour > i + 8) {
                         pastOrPresent = "past";
                     } else if (hour < i + 8) {
@@ -78,6 +76,7 @@ $(document).ready(function() {
                     
                     eventColumn.append(inputDiv);
                     newRow.append(eventColumn);
+                    //check if local storage item exists to populate saved entries
                     if (JSON.parse(localStorage.getItem(hourBlock)) !== null) {
                         var input = JSON.parse(localStorage.getItem(hourBlock));
                         console.log(input);
@@ -86,7 +85,7 @@ $(document).ready(function() {
                         inputDiv.val(input);
                         // $(tempString).val(input);
                     }
-                    // inputDiv.val(JSON.localStorage.getItem(hourBlock));
+                    
     
                     var saveCol = $("<div>");
                     saveCol.addClass("col-md-2 right");
@@ -102,19 +101,16 @@ $(document).ready(function() {
                     $(".container").append(newRow);
                 
             }
-
+            //event listener for save buttons
             $(".saveBtn").on("click", function(){
+                //set unique ids for save buttons that are 10* the id of the text
+                //areas
                 var id = $(this).attr("id") / 10;
                 console.log(id);
                 var stringID = "#" + id;
-                // $(stringID).text("testing");
-                // var test = $(stringID).text();
-                // console.log(test);
+                // save to local storage
                 localStorage.setItem(id, JSON.stringify($(stringID).val()));
             })
     
-        //add local storage functionality for save buttons
 });
     
-
-//set up event listeners for the form save buttons and add to local storage
