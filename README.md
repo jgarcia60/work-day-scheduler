@@ -35,7 +35,7 @@ This is what it looks like:
 
 ## Credits
 
-All HTML, CSS, and JS files, edits, additions, and revisions were done by Jonathan Garcia (https://github.com/jgarcia60/code-quiz). 
+All HTML, CSS, and JS files, edits, additions, and revisions were done by Jonathan Garcia (https://github.com/jgarcia60/work-day-scheduler). 
 
 ## License
 
